@@ -7,7 +7,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const StandardObservableProperty_shared_1 = require("khrysalis/dist/observables/StandardObservableProperty.shared");
+const StandardObservableProperty_shared_1 = require("butterfly/dist/observables/StandardObservableProperty.shared");
 const firebase = __importStar(require("firebase/app"));
 require("firebase/messaging");
 const ForegroundNotificationHandler_shared_1 = require("./ForegroundNotificationHandler.shared");
@@ -20,7 +20,7 @@ function checkNotificationPromise() {
     }
     return true;
 }
-//! Declares com.lightningkite.khrysalis.fcm.Notifications
+//! Declares com.lightningkite.butterfly.fcm.Notifications
 class Notifications {
     constructor() {
         this.notificationToken = new StandardObservableProperty_shared_1.StandardObservableProperty(null);

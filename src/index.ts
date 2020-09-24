@@ -1,8 +1,8 @@
-import {ViewGenerator} from "khrysalis/dist/views/ViewGenerator.shared";
-import {main} from "khrysalis/dist/main";
+import {ViewGenerator} from "butterfly/dist/views/ViewGenerator.shared";
+import {main} from "butterfly/dist/main";
 import firebase from "firebase";
 import {Notifications} from "./Notifications";
-import {tryCastInterface} from "khrysalis/dist/kotlin/Language";
+import {tryCastInterface} from "butterfly/dist/kotlin/Language";
 import {
     ForegroundNotificationHandler,
     ForegroundNotificationHandlerResult

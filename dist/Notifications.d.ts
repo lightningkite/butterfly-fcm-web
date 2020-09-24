@@ -1,4 +1,4 @@
-import { StandardObservableProperty } from "khrysalis/dist/observables/StandardObservableProperty.shared";
+import { StandardObservableProperty } from "butterfly/dist/observables/StandardObservableProperty.shared";
 import * as firebase from "firebase/app";
 import "firebase/messaging";
 import { ForegroundNotificationHandler } from "./ForegroundNotificationHandler.shared";

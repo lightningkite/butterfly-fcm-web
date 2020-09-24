@@ -1,8 +1,8 @@
-import {StandardObservableProperty} from "khrysalis/dist/observables/StandardObservableProperty.shared";
-import {ViewGenerator} from "khrysalis/dist/views/ViewGenerator.shared";
+import {StandardObservableProperty} from "butterfly/dist/observables/StandardObservableProperty.shared";
+import {ViewGenerator} from "butterfly/dist/views/ViewGenerator.shared";
 import * as firebase from "firebase/app";
 import "firebase/messaging"
-import {tryCastInterface} from "khrysalis/dist/kotlin/Language";
+import {tryCastInterface} from "butterfly/dist/kotlin/Language";
 import {
     ForegroundNotificationHandler,
     ForegroundNotificationHandlerResult
@@ -29,7 +29,7 @@ function checkNotificationPromise() {
     return true;
 }
 
-//! Declares com.lightningkite.khrysalis.fcm.Notifications
+//! Declares com.lightningkite.butterfly.fcm.Notifications
 export class Notifications {
     static INSTANCE = new Notifications();
     notificationToken = new StandardObservableProperty<string | null>(null);
