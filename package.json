@@ -1,11 +1,11 @@
 {
-  "name": "khrysalis-fcm",
+  "name": "butterfly-fcm",
   "version": "0.1.0",
   "description": "",
   "main": "Kotlin.js",
   "types": "Kotlin.d.ts",
   "dependencies": {
-    "khrysalis": "file:../web",
+    "butterfly": "file:../butterfly-web",
     "rxjs": "^6.5.5",
     "sprintf-js": "^1.1.2",
     "@types/sprintf-js": "1.1.2",

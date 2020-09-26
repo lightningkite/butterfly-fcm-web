@@ -7,10 +7,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const StandardObservableProperty_shared_1 = require("butterfly/dist/observables/StandardObservableProperty.shared");
+const StandardObservableProperty_1 = require("butterfly/dist/observables/StandardObservableProperty");
 const firebase = __importStar(require("firebase/app"));
 require("firebase/messaging");
-const ForegroundNotificationHandler_shared_1 = require("./ForegroundNotificationHandler.shared");
+const ForegroundNotificationHandler_1 = require("./ForegroundNotificationHandler");
 function checkNotificationPromise() {
     try {
         Notification.requestPermission().then();
@@ -23,7 +23,7 @@ function checkNotificationPromise() {
 //! Declares com.lightningkite.butterfly.fcm.Notifications
 class Notifications {
     constructor() {
-        this.notificationToken = new StandardObservableProperty_shared_1.StandardObservableProperty(null);
+        this.notificationToken = new StandardObservableProperty_1.StandardObservableProperty(null);
         this.handler = null;
         this.additionalMessageListener = () => {
         };
@@ -58,7 +58,7 @@ class Notifications {
                         data = new Map();
                     }
                     let handledState = (_a = this.handler) === null || _a === void 0 ? void 0 : _a.handleNotificationInForeground(data);
-                    if (handledState != ForegroundNotificationHandler_shared_1.ForegroundNotificationHandlerResult.SUPPRESS_NOTIFICATION) {
+                    if (handledState != ForegroundNotificationHandler_1.ForegroundNotificationHandlerResult.SUPPRESS_NOTIFICATION) {
                         new Notification(payload.notification.title, payload.notification);
                     }
                 });

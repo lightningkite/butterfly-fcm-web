@@ -1,7 +1,7 @@
-import { StandardObservableProperty } from "butterfly/dist/observables/StandardObservableProperty.shared";
+import { StandardObservableProperty } from "butterfly/dist/observables/StandardObservableProperty";
 import * as firebase from "firebase/app";
 import "firebase/messaging";
-import { ForegroundNotificationHandler } from "./ForegroundNotificationHandler.shared";
+import { ForegroundNotificationHandler } from "./ForegroundNotificationHandler";
 import MessagePayload = firebase.messaging.MessagePayload;
 interface Payload {
     data: Record<string, string>;

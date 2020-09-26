@@ -1,12 +1,12 @@
-import {StandardObservableProperty} from "butterfly/dist/observables/StandardObservableProperty.shared";
-import {ViewGenerator} from "butterfly/dist/views/ViewGenerator.shared";
+import {StandardObservableProperty} from "butterfly/dist/observables/StandardObservableProperty";
+import {ViewGenerator} from "butterfly/dist/views/ViewGenerator";
 import * as firebase from "firebase/app";
 import "firebase/messaging"
 import {tryCastInterface} from "butterfly/dist/kotlin/Language";
 import {
     ForegroundNotificationHandler,
     ForegroundNotificationHandlerResult
-} from "./ForegroundNotificationHandler.shared";
+} from "./ForegroundNotificationHandler";
 import MessagePayload = firebase.messaging.MessagePayload;
 
 
