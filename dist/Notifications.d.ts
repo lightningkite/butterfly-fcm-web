@@ -17,6 +17,8 @@ export declare class Notifications {
     fcmPublicKey?: string;
     additionalMessageListener: (payload: Payload | MessagePayload) => void;
     serviceWorkerLocation?: string;
+    constructor();
+    payloadReceived(payload: Payload): void;
     request(firebaseAppName?: string): void;
 }
 export {};

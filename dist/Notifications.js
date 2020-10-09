@@ -27,6 +27,23 @@ class Notifications {
         this.handler = null;
         this.additionalMessageListener = () => {
         };
+        window.Notifications = this;
+    }
+    payloadReceived(payload) {
+        var _a;
+        this.additionalMessageListener(payload);
+        let data;
+        let payData = payload.data;
+        if (payData) {
+            data = new Map(Object.entries(payData));
+        }
+        else {
+            data = new Map();
+        }
+        let handledState = (_a = this.handler) === null || _a === void 0 ? void 0 : _a.handleNotificationInForeground(data);
+        if (handledState != ForegroundNotificationHandler_1.ForegroundNotificationHandlerResult.SUPPRESS_NOTIFICATION) {
+            new Notification(payload.notification.title, payload.notification);
+        }
     }
     request(firebaseAppName) {
         let onResult = (x) => {
@@ -47,20 +64,7 @@ class Notifications {
                     console.warn('Unable to retrieve refreshed token ', err);
                 });
                 messaging.onMessage((payload) => {
-                    var _a;
-                    this.additionalMessageListener(payload);
-                    let data;
-                    let payData = payload.data;
-                    if (payData) {
-                        data = new Map(Object.entries(payData));
-                    }
-                    else {
-                        data = new Map();
-                    }
-                    let handledState = (_a = this.handler) === null || _a === void 0 ? void 0 : _a.handleNotificationInForeground(data);
-                    if (handledState != ForegroundNotificationHandler_1.ForegroundNotificationHandlerResult.SUPPRESS_NOTIFICATION) {
-                        new Notification(payload.notification.title, payload.notification);
-                    }
+                    this.payloadReceived(payload);
                 });
             }
         };

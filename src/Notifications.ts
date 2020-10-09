@@ -39,6 +39,25 @@ export class Notifications {
     }
     serviceWorkerLocation?: string
 
+    constructor() {
+        (window as any).Notifications = this
+    }
+
+    payloadReceived(payload: Payload){
+        this.additionalMessageListener(payload);
+        let data: Map<string, string>;
+        let payData = payload.data;
+        if (payData) {
+            data = new Map(Object.entries(payData))
+        } else {
+            data = new Map();
+        }
+
+        let handledState = this.handler?.handleNotificationInForeground(data);
+        if (handledState != ForegroundNotificationHandlerResult.SUPPRESS_NOTIFICATION) {
+            new Notification(payload.notification.title, payload.notification)
+        }
+    }
     request(firebaseAppName?: string) {
         let onResult = (x: NotificationPermission) => {
             if (x == "granted") {
@@ -60,19 +79,7 @@ export class Notifications {
                         console.warn('Unable to retrieve refreshed token ', err);
                     });
                 messaging.onMessage((payload: Payload) => {
-                    this.additionalMessageListener(payload);
-                    let data: Map<string, string>;
-                    let payData = payload.data;
-                    if (payData) {
-                        data = new Map(Object.entries(payData))
-                    } else {
-                        data = new Map();
-                    }
-
-                    let handledState = this.handler?.handleNotificationInForeground(data);
-                    if (handledState != ForegroundNotificationHandlerResult.SUPPRESS_NOTIFICATION) {
-                        new Notification(payload.notification.title, payload.notification)
-                    }
+                    this.payloadReceived(payload)
                 });
             }
         }

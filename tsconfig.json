@@ -19,6 +19,7 @@
         "*": [ "node_modules/@types/*", "*"],
         "rxjs": ["node_modules/rxjs"],
         "rxjs/*": ["node_modules/rxjs/*"]
-      }
+      },
+      "types": ["node"]
     }
   }
