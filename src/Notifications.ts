@@ -8,6 +8,7 @@ import {
     ForegroundNotificationHandlerResult
 } from "./ForegroundNotificationHandler";
 import MessagePayload = firebase.messaging.MessagePayload;
+import {ViewString} from "butterfly/dist/views/ViewString";
 
 
 interface Payload {
@@ -58,9 +59,10 @@ export class Notifications {
             new Notification(payload.notification.title, payload.notification)
         }
     }
-    request(firebaseAppName?: string) {
-        let onResult = (x: NotificationPermission) => {
+    request(insistMessage: ViewString | null = null, onResult: (success: boolean) => void = () => {}) {
+        let onBrowserResult = (x: NotificationPermission) => {
             if (x == "granted") {
+                onResult(true)
                 const messaging = firebase.messaging(firebase.app());
 
                 let getToken = (serviceWorkerRegistration?: ServiceWorkerRegistration) => {
@@ -81,12 +83,14 @@ export class Notifications {
                 messaging.onMessage((payload: Payload) => {
                     this.payloadReceived(payload)
                 });
+            } else {
+                onResult(false)
             }
         }
         if (checkNotificationPromise()) {
-            Notification.requestPermission().then(onResult);
+            Notification.requestPermission().then(onBrowserResult);
         } else {
-            Notification.requestPermission(onResult);
+            Notification.requestPermission(onBrowserResult);
         }
     }
 }
