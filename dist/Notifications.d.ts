@@ -3,6 +3,7 @@ import * as firebase from "firebase/app";
 import "firebase/messaging";
 import { ForegroundNotificationHandler } from "./ForegroundNotificationHandler";
 import MessagePayload = firebase.messaging.MessagePayload;
+import { ViewString } from "butterfly/dist/views/ViewString";
 interface Payload {
     data: Record<string, string>;
     notification: PayloadNotification;
@@ -19,6 +20,6 @@ export declare class Notifications {
     serviceWorkerLocation?: string;
     constructor();
     payloadReceived(payload: Payload): void;
-    request(firebaseAppName?: string): void;
+    request(insistMessage?: ViewString | null, onResult?: (success: boolean) => void): void;
 }
 export {};

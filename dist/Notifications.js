@@ -45,9 +45,10 @@ class Notifications {
             new Notification(payload.notification.title, payload.notification);
         }
     }
-    request(firebaseAppName) {
-        let onResult = (x) => {
+    request(insistMessage = null, onResult = () => { }) {
+        let onBrowserResult = (x) => {
             if (x == "granted") {
+                onResult(true);
                 const messaging = firebase.messaging(firebase.app());
                 let getToken = (serviceWorkerRegistration) => {
                     return messaging.getToken({
@@ -67,12 +68,15 @@ class Notifications {
                     this.payloadReceived(payload);
                 });
             }
+            else {
+                onResult(false);
+            }
         };
         if (checkNotificationPromise()) {
-            Notification.requestPermission().then(onResult);
+            Notification.requestPermission().then(onBrowserResult);
         }
         else {
-            Notification.requestPermission(onResult);
+            Notification.requestPermission(onBrowserResult);
         }
     }
 }
