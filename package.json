@@ -5,6 +5,8 @@
   "main": "Kotlin.js",
   "types": "Kotlin.d.ts",
   "dependencies": {
+  },
+  "peerDependencies": {
     "butterfly": "file:../butterfly-web",
     "rxjs": "^6.5.5",
     "sprintf-js": "^1.1.2",
@@ -16,9 +18,6 @@
     "iterable-operator": "^0.10.3",
     "firebase": "^7.20.0",
     "@types/node": "^14.11.5"
-  },
-  "peerDependencies": {
-    "khrysalis": "file:../web"
   },
   "devDependencies": {
     "typescript": "^3.4.5"
