@@ -7,7 +7,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const StandardObservableProperty_1 = require("butterfly/dist/observables/StandardObservableProperty");
+const StandardObservableProperty_1 = require("butterfly-web/dist/observables/StandardObservableProperty");
 const firebase = __importStar(require("firebase/app"));
 require("firebase/messaging");
 const ForegroundNotificationHandler_1 = require("./ForegroundNotificationHandler");

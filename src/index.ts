@@ -1,8 +1,8 @@
-import {ViewGenerator} from "butterfly/dist/views/ViewGenerator";
-import {main} from "butterfly/dist/main";
+import {ViewGenerator} from "butterfly-web/dist/views/ViewGenerator";
+import {main} from "butterfly-web/dist/main";
 import firebase from "firebase";
 import {Notifications} from "./Notifications";
-import {tryCastInterface} from "butterfly/dist/kotlin/Language";
+import {tryCastInterface} from "butterfly-web/dist/kotlin/Language";
 import {
     ForegroundNotificationHandler,
     ForegroundNotificationHandlerResult

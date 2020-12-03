@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const main_1 = require("butterfly/dist/main");
+const main_1 = require("butterfly-web/dist/main");
 const Notifications_1 = require("./Notifications");
-const Language_1 = require("butterfly/dist/kotlin/Language");
+const Language_1 = require("butterfly-web/dist/kotlin/Language");
 function mainWithFcm(rootVg, fcmPublicKey) {
     main_1.main(rootVg);
     Notifications_1.Notifications.INSTANCE.handler = Language_1.tryCastInterface(rootVg, "ForegroundNotificationHandler");
