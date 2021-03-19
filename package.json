@@ -1,7 +1,7 @@
 {
   "name": "butterfly-fcm-web",
   "version": "0.1.0",
-  "description": "",
+  "description": "Shared code for notifications using Butterfly.  This is the web portion.",
   "main": "Kotlin.js",
   "types": "Kotlin.d.ts",
   "dependencies": {},
@@ -33,5 +33,17 @@
     "build": "tsc",
     "test": "jest --env=node --colors --coverage --passWithNoTests test"
   },
-  "author": "Lightning Kite"
+  "author": "Lightning Kite",
+  "license": "MIT",
+  "directories": {
+    "lib": "src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lightningkite/butterfly-fcm-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lightningkite/butterfly-fcm-web/issues"
+  },
+  "homepage": "https://github.com/lightningkite/butterfly-fcm-web#readme"
 }
