@@ -4,7 +4,9 @@
   "description": "Shared code for notifications using Butterfly.  This is the web portion.",
   "main": "Kotlin.js",
   "types": "Kotlin.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "butterfly-web": "^0.1.2"
+  },
   "peerDependencies": {},
   "devDependencies": {
     "typescript": "^3.4.5",

@@ -3,6 +3,7 @@
 // File: ForegroundNotificationHandler.shared.kt
 // Package: com.lightningkite.butterfly.fcm
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ForegroundNotificationHandlerResult = exports.ForegroundNotificationHandlerDefaults = void 0;
 var ForegroundNotificationHandlerDefaults;
 (function (ForegroundNotificationHandlerDefaults) {
     function handleNotificationInForeground(this_, map) {

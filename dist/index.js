@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.mainWithFcm = void 0;
 const main_1 = require("butterfly-web/dist/main");
 const Notifications_1 = require("./Notifications");
 const Language_1 = require("butterfly-web/dist/kotlin/Language");
